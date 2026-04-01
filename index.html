@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Pipeline Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Sales Pipeline Tracker</h1>
+      <p class="subtitle">Track deal owners, stages, and expected close dates.</p>
+
+      <section class="card">
+        <h2>Add Deal</h2>
+        <form id="deal-form" class="grid">
+          <label>
+            Company
+            <input id="company" type="text" required placeholder="Acme Corp" />
+          </label>
+          <label>
+            Deal Owner
+            <input id="owner" type="text" required placeholder="Jamie" />
+          </label>
+          <label>
+            Stage
+            <select id="stage" required>
+              <option value="Prospecting">Prospecting</option>
+              <option value="Qualified">Qualified</option>
+              <option value="Proposal">Proposal</option>
+              <option value="Negotiation">Negotiation</option>
+              <option value="Closed Won">Closed Won</option>
+              <option value="Closed Lost">Closed Lost</option>
+            </select>
+          </label>
+          <label>
+            Expected Close Date
+            <input id="closeDate" type="date" required />
+          </label>
+          <label>
+            Deal Value ($)
+            <input id="value" type="number" min="0" step="100" required placeholder="25000" />
+          </label>
+          <button type="submit">Add Deal</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="table-header">
+          <h2>Open Deals</h2>
+          <label class="filter">
+            Filter by owner
+            <input id="ownerFilter" type="text" placeholder="Type owner name" />
+          </label>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Owner</th>
+              <th>Stage</th>
+              <th>Expected Close</th>
+              <th>Value</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="deals-body"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
